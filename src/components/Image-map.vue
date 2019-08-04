@@ -2,8 +2,8 @@
 <div class="box">
     <div class="container" style="position:relative;">
         <img :src="imgUrl" usemap="#imgMap"/>
-        <map name="imgMap">
-            <area shape="rect" data-id="1" :coords='hotPot' @click="clickCell($event,hotPot)"/>
+        <map name="imgMap" v-for="area in areaList" :key="area.id">
+            <area shape="rect" data-id="1" :coords='area.position' :href="`JavaScript:android.returnAndroid(${area.toughtId})`" @click="clickCell($event,hotPot)"/>
         </map>
         <div class="area-box" :style="boxStyle"></div>
     </div>
