@@ -27,3 +27,6 @@ yarn run lint
 
 ### [在线访问](https://zaxlct.github.io/img-map/#/2c99808f6c5add0d016c5ae5aa060002)
 
+## 测试 URL
+http://localhost:3000/#/2c99808f6c5add0d016c5ae5aa060002
+
