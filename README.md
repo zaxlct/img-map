@@ -25,5 +25,5 @@ yarn run test
 yarn run lint
 ```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+### [在线访问](https://zaxlct.github.io/img-map/#/2c99808f6c5add0d016c5ae5aa060002)
+
