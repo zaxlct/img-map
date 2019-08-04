@@ -1,11 +1,23 @@
 <template>
 <div class="box">
     <div class="container" style="position:relative;">
-        <img :src="imgUrl" usemap="#imgMap"/>
-        <map name="imgMap" v-for="area in areaList" :key="area.id">
-            <area shape="rect" data-id="1" :coords='area.position' :href="`JavaScript:android.returnAndroid(${area.toughtId})`" @click="clickCell($event,hotPot)"/>
-        </map>
-        <div class="area-box" :style="boxStyle"></div>
+        <img :src="imgUrl"/>
+        <!-- <map name="imgMap">
+            <area v-for="area in areaList" :key="area.id" shape="rect" :coords='hotPot' :href="`JavaScript:android.returnAndroid(${area.toughtId})`" @click="clickCell($event,hotPot)"/>
+        </map> -->
+        <div
+             v-for="area in position"
+             :key="position.id"
+             :href="`JavaScript:android.returnAndroid()`"
+             @click="clickCell($event)"
+             class="area-box"
+             :class="border"
+             :style="{
+                 left:area.x*(screenWidth/600)||200,
+                 top:area.y*(screenWidth/600)||200,
+                 width:area.width*(screenWidth/600),
+                 height:area.height*(screenWidth/600)
+             }"></div>
     </div>
 </div>
 </template>
@@ -26,30 +38,22 @@ export default {
             height:94,
             screenWidth: document.body.clientWidth,
             hotPot:'',
-            boxStyle:{}
+            List:[]
         })
     },
-
+    computed:{
+        position(){
+            return this.areaList.map(item=>item.position)
+        }
+    },
     mounted(){
-        const xLs = this.xL*(this.screenWidth/2342)
-        const yLs = this.yL*(this.screenWidth/2342)
-        const xRs = this.width*(this.screenWidth/2342)
-        const yRs = this.height*(this.screenWidth/2342)
-        this.hotPot = `${xLs},${yLs},${xRs},${yRs}`
+        console.log(this.position)
     },
     methods:{
         clickCell(e,hotPot){
-            // console.log(hotPot)
-            const [xL,yL,width,height] = hotPot.split(',')
-            // console.log(yL)
-            this.boxStyle={
-                left:`${xL}px`,
-                top:`${yL}px`,
-                width:`${width-xL}px`,
-                height:`${height-yL}px`,
-                border:'2px dashed red'
-            }
-        }
+
+
+        },
     }
 }
 </script>
