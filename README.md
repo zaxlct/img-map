@@ -2,31 +2,20 @@
 
 ## Project setup
 ```
-yarn install
+npm i
 ```
 
 ### Compiles and hot-reloads for development
 ```
-yarn run serve
+npm start
 ```
 
-### Compiles and minifies for production
+### 自动部署到 GitHub Pages
 ```
-yarn run build
-```
-
-### Run your tests
-```
-yarn run test
+npm run build
 ```
 
-### Lints and fixes files
-```
-yarn run lint
-```
-
-### [在线访问](https://zaxlct.github.io/img-map/#/2c99808f6c5add0d016c5ae5aa060002)
-
-## 测试 URL
+## 本地访问URL
 http://localhost:3000/#/2c99808f6c5add0d016c5ae5aa060002
 
+### [在线访问](https://zaxlct.github.io/img-map/#/2c99808f6c5add0d016c5ae5aa060002)
