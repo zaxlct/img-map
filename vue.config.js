@@ -2,11 +2,6 @@
 
 module.exports = {
   publicPath: './',
-  outputDir: 'dist',
+  outputDir: 'docs',
   assetsDir: '',
-  productionSourceMap: false,
-  devServer: {
-    port: 3000,
-    open: true
-  }
 }
