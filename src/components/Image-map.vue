@@ -2,22 +2,21 @@
 <div class="box">
     <div class="container" style="position:relative;">
         <img :src="imgUrl"/>
-        <!-- <map name="imgMap">
-            <area v-for="area in areaList" :key="area.id" shape="rect" :coords='hotPot' :href="`JavaScript:android.returnAndroid(${area.toughtId})`" @click="clickCell($event,hotPot)"/>
-        </map> -->
-        <div
-             v-for="area in position"
-             :key="position.id"
-             :href="`JavaScript:android.returnAndroid()`"
-             @click="clickCell($event)"
-             class="area-box"
-             :class="border"
-             :style="{
-                 left:area.x*(screenWidth/600)||200,
-                 top:area.y*(screenWidth/600)||200,
-                 width:area.width*(screenWidth/600),
-                 height:area.height*(screenWidth/600)
-             }"></div>
+
+        <a
+            v-for="area in position"
+            :key="area.id"
+            :href="`JavaScript:android.returnAndroid()`"
+            @click="clickCell(area.id)"
+            class="area-box"
+            :class="{border: currentAreaId === area.id}"
+            :style="{
+                left: (area.x*(screenWidth/600) || 200) + 'px',
+                top: (area.y*(screenWidth/600) || 200) + 'px',
+                width: area.width*(screenWidth/600) + 'px',
+                height: area.height*(screenWidth/600)  + 'px',
+            }">
+        </a>
     </div>
 </div>
 </template>
@@ -29,30 +28,23 @@ export default {
         areaList: Array,
     },
 
-
     data(){
         return({
-            xL:37,
-            yL:2,
-            width:1174,
-            height:94,
             screenWidth: document.body.clientWidth,
             hotPot:'',
-            List:[]
+            List:[],
+            currentAreaId: '',
         })
     },
     computed:{
         position(){
-            return this.areaList.map(item=>item.position)
+            return this.areaList.map(item=> item.position)
         }
     },
-    mounted(){
-        console.log(this.position)
-    },
+
     methods:{
-        clickCell(e,hotPot){
-
-
+        clickCell(id){
+            this.currentAreaId = id
         },
     }
 }
@@ -72,6 +64,9 @@ export default {
 .area-box{
     position: absolute;
 }
-</style>
 
+.border {
+    border: 2px dashed red;
+}
+</style>
 
