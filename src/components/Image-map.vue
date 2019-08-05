@@ -11,11 +11,11 @@
         class="area-box"
         :class="{border: currentAreaId === area.id}"
         :style="{
-                left: (area.x*(screenWidth/600) || 200) + 'px',
-                top: (area.y*(screenWidth/600) || 200) + 'px',
-                width: area.width*(screenWidth/600) + 'px',
-                height: area.height*(screenWidth/600)  + 'px',
-            }"
+          left: (area.x*(screenWidth/600) || 200) + 'px',
+          top: (area.y*(screenWidth/600) || 200) + 'px',
+          width: area.width*(screenWidth/600) + 'px',
+          height: area.height*(screenWidth/600)  + 'px',
+        }"
       ></a>
     </div>
   </div>
